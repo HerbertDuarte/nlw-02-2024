@@ -2,8 +2,8 @@ import logo from "../assets/Logo.svg";
 
 export function Header() {
   return (
-    <div className="space-y-6">
-      <img src={logo} alt="logo nlw" />
+    <header className="space-y-6">
+      <img src={logo} alt="logo nlw expert" />
       <form>
         <input
           className="bg-transparent outline-none text-3xl font-semibold tracking-tight placeholder:text-slate-500 text-slate-200"
@@ -11,6 +11,6 @@ export function Header() {
           placeholder="Busque em suas notas..."
         />
       </form>
-    </div>
+    </header>
   );
 }
