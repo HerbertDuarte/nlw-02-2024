@@ -4,8 +4,7 @@ import { NoteCard } from "./components/note-card";
 export function App() {
   return (
     <main className="py-16 px-32">
-      
-      <Header/>
+      <Header />
 
       <div className="h-px my-8 bg-slate-700" />
 
@@ -13,26 +12,26 @@ export function App() {
         <NewNoteCard />
         <NoteCard
           note={{
-            date: new Date(),
+            date: new Date("2024-02-07"),
             content:
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis libero explicabo sit provident officiis quo minima repellat atque quas alias cupiditate fugiat autem, error tenetur maiores magni eius sequi nihil!",
           }}
         />
         <NoteCard
           note={{
-            date: new Date(),
+            date: new Date("2024-02-06"),
             content:
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis libero explicabo sit provident officiis quo minima repellat atque quas alias cupiditate fugiat autem, error tenetur maiores magni eius sequi nihil!",
           }}
         />
         <NoteCard
           note={{
-            date: new Date(),
+            date: new Date("2024-02-01"),
             content:
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis libero explicabo sit provident officiis quo minima repellat atque quas alias cupiditate fugiat autem, error tenetur maiores magni eius sequi nihil!",
           }}
         />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
