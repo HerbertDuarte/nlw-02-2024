@@ -41,12 +41,12 @@ export function App() {
       : notes;
 
   return (
-    <main className="py-16 px-32">
+    <main className="p-10 md:py-16 md:px-32 ">
       <Header model={searchModel} />
 
       <div className="h-px my-8 bg-slate-700" />
 
-      <section className="grid gap-4 grid-cols-3 auto-rows-[250px]">
+      <section className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[250px]">
         <NewNoteCard fn={onNoteCreated} />
         {filterdNotes.map((note) => (
           <NoteCard key={note.id} note={note} />
