@@ -5,12 +5,15 @@ import { X } from "lucide-react";
 
 interface NoteCardProps {
   note: {
+    id: string;
     date: Date;
     content: string;
   };
+
+  fnDelete: (id: string) => void;
 }
 
-export function NoteCard({ note }: NoteCardProps) {
+export function NoteCard({ note, fnDelete }: NoteCardProps) {
   return (
     <Dialog.Root>
       <Dialog.Trigger className="bg-slate-800 outline-none text-left rounded-md p-5 overflow-hidden relative hover:ring-2 hover:ring-slate-700 focus-visible:ring-2 focus-visible:ring-lime-200/40">
@@ -25,12 +28,12 @@ export function NoteCard({ note }: NoteCardProps) {
 
       <Dialog.Portal>
         <Dialog.Overlay className="inset-0 fixed bg-black/50" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 outline-none flex flex-col rounded-md w-[95%] max-w-[640px] h-[60vh] overflow-hidden">
-        <>
-          <Dialog.Close className="fixed top-0 right-0 z-20 justify-end p-1.5 bg-slate-800 text-slate-300 rounded-bl">
-            <X className="size-5"/>
-          </Dialog.Close>
-        </>
+        <Dialog.Content className="fixed inset-0 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 outline-none flex flex-col rounded-md md:w-[95%] md:max-w-[640px] md:h-[60vh] overflow-hidden">
+          <>
+            <Dialog.Close className="fixed top-0 right-0 z-20 justify-end p-1.5 bg-slate-800 text-slate-300 rounded-bl">
+              <X className="size-5" />
+            </Dialog.Close>
+          </>
           <div className="flex flex-col flex-1 h-full w-full space-y-3 bg-slate-700 outline-none text-left p-5 relative">
             <span className="text-slate-300 text-sm font-medium">
               {formatDistanceToNow(note.date, {
@@ -42,7 +45,7 @@ export function NoteCard({ note }: NoteCardProps) {
           </div>
           <button
             type="button"
-            onClick={() => console.log("delete note")}
+            onClick={() => fnDelete(note.id)}
             className="w-full bg-slate-800 text-slate-300 py-2 group"
           >
             Deseja{" "}

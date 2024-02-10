@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Header } from "./components/header";
 import { NewNoteCard } from "./components/new-note-card";
 import { NoteCard } from "./components/note-card";
+import { toast } from "sonner";
 export function App() {
   interface Note {
     id: string;
@@ -28,9 +29,20 @@ export function App() {
       content,
     };
     const notesArray = [newNote, ...notes];
+
     setNotes(notesArray);
 
     localStorage.setItem("notes", JSON.stringify(notesArray));
+  }
+
+  function onDeleteNote(id: string) {
+    const notesArray = notes.filter((item) => item.id !== id);
+
+    setNotes(notesArray);
+
+    localStorage.setItem("notes", JSON.stringify(notesArray));
+    
+    toast.info("Nota deletada com sucesso!")
   }
 
   const filterdNotes =
@@ -41,7 +53,7 @@ export function App() {
       : notes;
 
   return (
-    <main className="p-10 md:py-16 md:px-32 ">
+    <main className="p-5 md:p-10 lg:py-16 lg:px-16 ">
       <Header model={searchModel} />
 
       <div className="h-px my-8 bg-slate-700" />
@@ -49,7 +61,7 @@ export function App() {
       <section className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[250px]">
         <NewNoteCard fn={onNoteCreated} />
         {filterdNotes.map((note) => (
-          <NoteCard key={note.id} note={note} />
+          <NoteCard key={note.id} note={note} fnDelete={onDeleteNote} />
         ))}
       </section>
     </main>

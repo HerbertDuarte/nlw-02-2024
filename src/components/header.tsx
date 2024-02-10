@@ -14,7 +14,7 @@ export function Header({ model }: HeaderProps) {
         <input
           onChange={(e) => setSearch(e.target.value)}
           value={search}
-          className="bg-transparent outline-none text-3xl font-semibold tracking-tight placeholder:text-slate-500 text-slate-200"
+          className="bg-transparent outline-none text-2xl md:text-3xl font-semibold tracking-tight placeholder:text-slate-500 text-slate-200 max-w-full"
           type="text"
           placeholder="Busque em suas notas..."
         />
