@@ -79,7 +79,7 @@ export function NewNoteCard({ fn }: NewNoteCardProps) {
     console.log("stop")
     setIsRecording(false);
 
-    if(content !== ''){
+    if(content === ''){
       setShouldShowOnboarding(true);
     }
     if(speechRecognition !== null) {
