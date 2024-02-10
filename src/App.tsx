@@ -41,8 +41,8 @@ export function App() {
     setNotes(notesArray);
 
     localStorage.setItem("notes", JSON.stringify(notesArray));
-    
-    toast.info("Nota deletada com sucesso!")
+
+    toast.info("Nota deletada com sucesso!");
   }
 
   const filterdNotes =

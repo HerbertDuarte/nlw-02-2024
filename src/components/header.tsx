@@ -10,11 +10,11 @@ export function Header({ model }: HeaderProps) {
   return (
     <header className="space-y-6">
       <img src={logo} alt="logo nlw expert" />
-      <form>
+      <form className="w-full">
         <input
           onChange={(e) => setSearch(e.target.value)}
           value={search}
-          className="bg-transparent outline-none text-2xl md:text-3xl font-semibold tracking-tight placeholder:text-slate-500 text-slate-200 max-w-full"
+          className="bg-transparent outline-none text-2xl md:text-3xl font-semibold tracking-tight placeholder:text-slate-500 text-slate-200 w-full"
           type="text"
           placeholder="Busque em suas notas..."
         />
