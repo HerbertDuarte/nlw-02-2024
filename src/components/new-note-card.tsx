@@ -79,7 +79,9 @@ export function NewNoteCard({ fn }: NewNoteCardProps) {
     console.log("stop")
     setIsRecording(false);
 
-    setShouldShowOnboarding(true);
+    if(content !== ''){
+      setShouldShowOnboarding(true);
+    }
     if(speechRecognition !== null) {
       speechRecognition.stop()
     }
